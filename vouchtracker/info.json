@@ -1,0 +1,13 @@
+{
+    "name": "Vouch Tracker",
+    "author": ["@xeon.__"],
+    "description": "A cog to manage and track vouches. Has both text and slash versions of each command. Use to keep track of feedback for you and/or your server staff",
+    "install_msg": "Thank you for installing the Vouch tracker cog. Use `[p]help` to get started, don't forget to enable the slash commands!",
+    "short": "Vouch tracking/management",
+    "requirements": [],
+    "tags": ["vouches", "tracking", "management"],
+    "min_bot_version": "3.5.9",
+    "hidden": false,
+    "disabled": false,
+    "type": "COG"
+}
