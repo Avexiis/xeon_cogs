@@ -12,8 +12,7 @@ Vouch Tracker is a cog for Red-DiscordBot that helps track user vouches in Disco
 
 To install Vouch Tracker, use the following commands:
 
-[p]repo add Xeon_Cogs VouchTracker
-[p]cog install repo_name vouch_tracker
+[p]repo add Xeon_Cogs [p]cog install xeon_cogs vouchtracker
 
 ## Commands
 
