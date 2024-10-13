@@ -40,6 +40,7 @@ class Vouches(commands.Cog):
 
     @commands.hybrid_command(name="vouches", description="Check user vouches")
     @commands.guild_only()
+    @checks.admin_or_permissions(administrator=True)
     async def vouches_command(self, ctx: commands.Context, user: discord.User):
         vouch_count = await self.config.member(user).vouch_count()
         await ctx.send(f"{user.mention} has {vouch_count} vouches.")
@@ -63,6 +64,7 @@ class Vouches(commands.Cog):
 
     @commands.hybrid_command(name="vouchleaderboard", description="Show vouch leaderboard")
     @commands.guild_only()
+    @checks.admin_or_permissions(administrator=True)
     async def vouchleaderboard_command(self, ctx: commands.Context):
         if not ctx.author.guild_permissions.administrator:
             if ctx.guild.id in self.leaderboard_cooldown:
