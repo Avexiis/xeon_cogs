@@ -41,14 +41,14 @@ class Vouches(commands.Cog):
     @commands.hybrid_command(name="vouches", description="Check user vouches")
     @commands.guild_only()
     @checks.admin_or_permissions(administrator=True)
-    async def vouches_command(self, ctx: commands.Context, user: discord.User):
+    async def vouches_command(self, ctx: commands.Context, user: discord.Member):
         vouch_count = await self.config.member(user).vouch_count()
         await ctx.send(f"{user.mention} has {vouch_count} vouches.")
 
     @commands.hybrid_command(name="addvouch", description="Add user vouches")
     @commands.guild_only()
     @checks.admin_or_permissions(administrator=True)
-    async def addvouch_command(self, ctx: commands.Context, user: discord.User, number: int):
+    async def addvouch_command(self, ctx: commands.Context, user: discord.Member, number: int):
         vouch_count = await self.config.member(user).vouch_count()
         await self.config.member(user).vouch_count.set(vouch_count + number)
         await ctx.send(f"Added {number} vouch(es) for {user.mention}. They now have {vouch_count + number} vouches.")
@@ -56,7 +56,7 @@ class Vouches(commands.Cog):
     @commands.hybrid_command(name="removevouch", description="Remove user vouches")
     @commands.guild_only()
     @checks.admin_or_permissions(administrator=True)
-    async def removevouch_command(self, ctx: commands.Context, user: discord.User, number: int):
+    async def removevouch_command(self, ctx: commands.Context, user: discord.Member, number: int):
         vouch_count = await self.config.member(user).vouch_count()
         new_vouch_count = max(0, vouch_count - number)
         await self.config.member(user).vouch_count.set(new_vouch_count)
